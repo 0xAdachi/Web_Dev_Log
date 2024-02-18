@@ -53,17 +53,20 @@ a {
 #top_bar{
     background-color: #0f2f44;
 }
+
 #top_bar p{
     color:#fefefe;
     padding:13px 0;
     font-size: 16px;
     line-height: 24px;
 }
+
 /* Top Section End */
 /* Nav Section Start */
 #primary_nav .row{
     align-items: center;
 }
+
 #primary_nav ul li a{
     font-weight: 500;
     color:#222222;
@@ -72,10 +75,12 @@ a {
     padding:25px 19px;
     transition:0.5s;
 }
+
 #primary_nav ul li a:hover{
     background-color: #fff9e6;
     color:#ffc712;
 }
+
 #primary_nav ul li button{
     width:30px;
     height:30px;
@@ -84,6 +89,7 @@ a {
     background: none;
     margin-left: 20px;
 }
+
 #primary_nav ul li button:hover{
     background-color: #fff9e6;
     color:#ffc712;
@@ -98,9 +104,11 @@ a {
     display: flex;
     align-items: center;
 }
+
 #banner .inner_container{
     width:40%;
 }
+
 #banner .inner_container h1{
     font-size: 80px;
     letter-spacing: 7px;
@@ -110,12 +118,14 @@ a {
     padding-bottom: 17px;
     text-transform: uppercase;
 }
+
 #banner .inner_container h3{
     font-size: 50px;
     font-weight: 300;
     color:#0f2f44;
     line-height: 24px;
 }
+
 #banner .inner_container h4{
     font-size: 32px;
     letter-spacing:17px;
@@ -123,11 +133,13 @@ a {
     color:#9ea2d0;
     text-transform: capitalize;
 }
+
 #banner .inner_container p{
     font-size: 14px;
     color:#444444;
     line-height: 24px;
 }
+
 #banner .inner_container a{
     padding: 14px 20px;
     background-color: #ffffff;
@@ -139,10 +151,12 @@ a {
     margin-top:33px;
     width:164px;
 }
+
 #banner .inner_container a:hover{
     color:#ffffff;
     background-color: #8484bf;
 }
+
 #banner .inner_container button{
    width:49px;
    height:49px;
@@ -166,32 +180,39 @@ a {
 #about{
     margin:80px 0;
 }
+
 #about .about_bg{
     width:570px;
     margin-top: 100px;
 }
+
 #about .about_inner_container_info{
     width:600px;
 }
+
 #about .about_inner_container_info p{
     font-size: 14px;
     font-weight: 300px;
     font-family: 'Ubuntu', sans-serif;
 }
+
 #about .about_inner_container_info h2{
     font-size: 32px;
     font-weight: 400px;
 }
+
 #about .about_inner_container_info p{
     font-size: 16px;
     line-height: 24px;
     padding-top: 31px;
 }
+
 #about .about_inner_container_info ul li{
     font-size: 16px;
     line-height: 44px;
     padding-left: 30px;
 }
+
 #about .about_inner_container_info a{
     font-size: 20px;
     line-height: 44px;
@@ -203,6 +224,7 @@ a {
     border-radius: 5px;
     transition: 0.7s;
 }
+
 #about .about_inner_container_info a:hover{
     background-color: #ffc712;
 }
@@ -211,23 +233,28 @@ a {
 #skill{
     margin-bottom: 100px;
 }
+
 #skill .skill_info{
     width: 500px;
     text-align: right;
 }
+
 #skill .skill_info p .skill_section_title{
     font-size: 14px;
     font-weight: 300px;
     font-family: 'Ubuntu', sans-serif;
 }
+
 #skill .skill_info h2{
     font-size: 32px;
     margin-bottom: 30px;
 }
+
 #skill .skill_bg{
     width: 550px;
     padding-top: 52px;
 }
+
 #skill .skill_info img{
     width: 400px;
     height: 320px;
@@ -240,21 +267,25 @@ a {
     padding-top: 60px;
     margin-bottom: 100px;
 }
+
 #service .service_section_info h4{
     font-size: 14px;
     font-weight: 300px;
 }
+
 #service .service_section_info p{
     font-size: 14px;
     font-weight: 300px;
     font-family: 'Ubuntu', sans-serif;
 }
+
 #service .service_section_info h2{
     font-size: 32px;
     font-weight: 400px;
     margin-bottom: 56px;
     color:#0f2f44;
 }
+
 #service .service_box {
     width: calc(100% / 3 - 30px);
     margin: 0 15px;
@@ -262,15 +293,18 @@ a {
     background-color: #e9e9e9;
     position: relative;
 }
+
 #service .service_box .service_box_icon {
     width: 100px;
     text-align: center;
 }
+
 #service .service_box .service_box_info {
     width: calc(100% - 100px);
     background-color: #eeeeee;
     padding: 28px 20px;
 }
+
 #service .service_box .service_box_info h3{
     font-size: 20px;
     margin-bottom: 30px;
@@ -278,6 +312,7 @@ a {
     font-weight: 500;
     margin-bottom: 20px;
 }
+
 #service .service_box .service_box_info p{
     font-size: 14px;
     font-weight: 300px;
@@ -285,6 +320,7 @@ a {
     font-weight: 400;
     color:#444444;
 }
+
 #service .service_box .overlay {
     align-items: center;
     justify-content: center;
@@ -295,6 +331,7 @@ a {
     transition: .6s;
     transform: scale(0);
 }
+
 #service .service_box .overlay h3{
     color:#fff;
     font-size: 20px;
@@ -302,9 +339,11 @@ a {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
 }
+
 #service .service_box:hover .overlay {
     transform: scale(1);
 }
+
 #service .service_box .icons span {
     width: 40px;
     height: 40px;
@@ -314,6 +353,7 @@ a {
     background-color: #ffc712;
     display: inline-block;
 }
+
 #service .service_box .icons {
     position: absolute;
     bottom: -20px;
@@ -322,6 +362,7 @@ a {
     opacity: 0;
     visibility: hidden;
 }
+
 #service .service_box:hover .icons {
     opacity: 1;
     visibility: visible;
@@ -336,20 +377,28 @@ a {
     font-size: 32px;
     color:#0f2f44;
 }
+
 #portfolio .portfolio_section_info p{
     font-size: 14px;
     color:#0f2f44;
     font-family:  'Ubuntu', sans-serif;
 }
+
 #portfolio .portfolio_img{
     width:calc(100% / 3 -30px);
     margin:0 15px;
     position:relative;
     margin-bottom:60px;
 }
+
 #portfolio .portfolio_img img{
     width:100%;
 }
+
+#portfolio .portfolio_img:hover {
+    transform: scale(1.2);
+}
+
 #portfolio a{
     font-size:20px;
     font-weight:500px;
@@ -363,6 +412,7 @@ a {
     margin: 0 auto;
     margin-bottom: 100px;
 }
+
 #portfolio a:hover{
     box-shadow: 0px 7px 20px 0px rgba(255, 199, 18, .25);
     background-color: #ffc712;
@@ -374,15 +424,18 @@ a {
     padding:60px 0;
     margin-bottom: 100px;
 }
+
 #testimonial .testimonial_section_info p{
     color: #0f2f44;
     font-size: 14px;
     font-family: 'Ubuntu', sans-serif;
 }
+
 #testimonial .testimonial_section_info h2{
     font-size: 32px;
     padding-bottom: 67px;
 }
+
 #testimonial .testimonial_box{
     width: calc(100% / 2 - 30px);
     margin: 0 12px;
@@ -390,19 +443,23 @@ a {
     border-radius: 8px;
     align-items: center;
 }
+
 #testimonial .testimonial_box .testimonial_img{
     width: 210px;
     height: 100%;
 }
+
 #testimonial .testimonial_box .testimonial_info{
     width: calc(100% - 215px);
     padding: 14px 20px;
     text-align: left;
 }
+
 #testimonial .testimonial_box .testimonial_info p{
     font-size: 14px;
     line-height: 24px;
 }
+
 #testimonial .testimonial_box .testimonial_info h3{
     font-weight: 500;
     padding: 10px 0 8px;
@@ -415,16 +472,19 @@ a {
     background-color: #ffff;
     text-align: center;
 }
+
 #blog .blog_section_info p{
     font-size: 14px;
     color:#0f2f44;
     font-family: 'Ubuntu', sans-serif;
 }
+
 #blog .blog_section_info h2{
     font-size: 32px;
     padding-bottom:70px;
     font-weight: 400px;
 }
+
 #blog .blog_box{
     width: calc(100%/3 - 30px);
     margin: 0px 15px;
@@ -466,12 +526,15 @@ a {
 #blog .blog_box:hover h6{
     color: #f5f5f5;
 }
+
 #blog .blog_box:hover p{
     color: #f5f5f5;
 }
+
 #blog .blog_box:hover a{
     color: #f5f5f5;
 }
+
 #blog .blog_box:hover i{
     color: #f5f5f5;
 }
@@ -483,9 +546,11 @@ a {
     padding-bottom: 70px;
     box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.15);
 }
+
 #footer .footer_box p{
     color:#828282;
 }
+
 footer .footer_box .row li a{
     width: 39px;
     height: 39px;
@@ -497,103 +562,129 @@ footer .footer_box .row li a{
     font-size: 20px;
     transition: .6s;
 }
+
 footer .footer_box .row li a:hover{
     background-color: #0f2f44;
     color: #ffffff;
 }
+
 footer .footer_box:nth-child(1){
     width: 25%;
     padding-right: 30px;
 }
+
 footer .footer_box:nth-child(1) p{
     padding: 28px 0;
 }
+
 footer .footer_box:nth-child(2){
     width: 25%;
     padding-right: 30px;
     color: #777777;
 }
+
 footer .footer_box:nth-child(2) h3{
     padding-bottom: 12px;
     color: black;
     font-size: 20px;
     font-weight: 500;
 }
+
 footer .footer_box:nth-child(2) a{
     color: #777777;
 }
+
 footer .footer_box:nth-child(2) li{
     align-items: center;
     padding-top: 33px;
 }
+
 footer .footer_box:nth-child(2) i{
     width: 10%;
 }
+
 footer .footer_box:nth-child(2) div{
     width: calc(100% - 10%);
 }
+
 footer .footer_box:nth-child(3){
     width: 15%;
 }
+
 footer .footer_box:nth-child(3) h3{
     padding-bottom: 30px;
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
 }
+
 footer .footer_box:nth-child(3) ul li a{
     font-size: 14px;
     line-height: 42px;
     color: #444444;
 }
+
 footer .footer_box:nth-child(4){
     width: 35%;
 }
+
 footer .footer_box:nth-child(4) h3{
     padding-bottom: 37px;
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
 }
+
 footer .footer_box .info_img{
     width: 25%;
     padding: 0 7.5px 7.5px 7.5px;
 }
+
 footer .footer_box .info_img:nth-child(1){
     padding: 0 7.5px 7.5px 0;
 }
+
 footer .footer_box .info_img:nth-child(4){
     padding: 0 0 7.5px 7.5px;
 }
+
 footer .footer_box .info_img:nth-child(5){
     padding: 7.5px 7.5px 0 0;
 }
+
 footer .footer_box .info_img:nth-child(6){
     padding: 7.5px 7.5px 0 7.5px;
 }
+
 footer .footer_box .info_img:nth-child(7){
     padding: 7.5px 7.5px 0 7.5px;
 }
+
 footer .footer_box .info_img:nth-child(8){
     padding: 7.5px 0 0 7.5px;
 }
+
 footer .footer_box .info_img img{
     width: 100%;
     height: 100%;
 }
 /* Footer Section CSS End */
-
+/* Bottom Section CSS Start */
 #bottom_section{
     padding: 20px 0;
 }
+
 #bottom_section .row{
     justify-content: center;
 }
+
 #bottom_section .row p{
     font-size: 14px;
     line-height: 19px;
 }
+
 #bottom_section p b{
     color: #ffc712;
     font-weight: 400;
 }
+/* Bottom Section CSS End */
