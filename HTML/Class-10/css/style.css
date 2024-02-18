@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+
+/* COMMON CSS START */
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 5px;
+}
+/* COMMON CSS END */
+body {
+    border-top: 4px solid #aae4fa;
+}
+/* NAV START */
+nav {
+    background-color: #fef8ff;
+}
+
+nav .row {
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .row ul li {
+    display: inline-block;
+}
+
+nav .row ul li a {
+    color:#848484;
+    font-family: 'Arimo', sans-serif;
+    font-size: 20px; 
+    padding: 96px 27.5px;
+}
+
+nav .row ul li a:hover {
+    color:#03b8ef;
+}
+
+nav .row ul li button {
+    background:linear-gradient(to right, #01b9ef, #53d1f5);
+    padding: 19px 21px;
+    color:#fff;
+    border-radius: 5px;
+    border:none;
+    font-size: 20px;
+}
+/* NAV END */
+/* BANNER START */
+#banner {
+    background-color: #fef8ff;
+    padding-bottom: 125px;
+}
+
+#banner .container {
+    background-image: url(./../assets/banner_bg.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    height:510px;
+}
+
+#banner .info {
+    width:48%;
+    padding-top: 190px;
+}
+
+#banner .info h2 {
+    font-size: 58px;
+    font-weight: 400;
+    font-family: 'Abril Fatface', serif;
+    padding-bottom: 30px;
+}
+
+#banner .info p {
+    font-size: 18px;
+    font-weight:400 ;
+    font-family: 'Arimo', sans-serif;
+    color:#444444;
+}
+/* BANNER END */

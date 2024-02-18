@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    min-width: 1280px;
+}
+
+ul, li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.nav_bar {
+    background-color: #02918C;
+    padding: 18px 66px 23px 19px;
+    display: flex;
+}
+
+.nav_bar img {
+    display: inline-block;
+}
+
+.nav_bar ul {
+    display: inline-block;
+    justify-content: right;
+    margin-left: auto;
+}
+
+.nav_bar li {
+    display: inline-block;
+    color: white;
+    font-size: 12px;
+    margin-left: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    /* font-weight: extrabold; */
+}
+
+.article_start {
+    background-image: url(../asstes/article_bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 728px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.article_start h4 {
+    /* -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility; */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.article_start h2 {
+    letter-spacing: 25px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 68px;
+    margin-top: -10px;
+}
+
+.article_start h5 {
+    margin-top: 17px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.article_start img {
+    margin-top: 52px;
+}
+
+.article_start button {
+    margin-top: 52px;
+    padding: 19px 42px 17px 42px;
+    background-color: #cfc91d;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    /* text-shadow: 0px 1px, 1px 0px, 1px 1px; */
+}

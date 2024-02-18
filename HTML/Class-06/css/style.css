@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    /* border: 0; */
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* ul {
+    list-style-position: inside;
+} */
+
+ ul {
+    margin-left: 1.5em;
+    text-align: left;
+}
+
+li {
+    padding-top: 15px;
+}
+
+.main{
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: white;
+    width: 258px;
+    height: 707px;
+    border: 1px solid white;
+}
+
+.container:hover {
+    border: 1px solid black;
+    
+}
+
+.main .container .discount span {
+    background-color: #6E2594;
+    color: white;
+    margin: 3px;
+    padding-left: 3px;
+    width: 95px;
+    height: 25px;
+    border-radius: 0 15px 15px 0;
+    display: inline-block;
+    line-height: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.main .container .productImg img {
+    width: 227px;
+    height: 230px;
+}
+
+.desc {
+    width: 256px;
+    height: 75px;
+    padding-left: 15px;
+}
+
+.desc a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.desc a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.proSpec {
+    /* background-color: purple; */
+    width: 256px;
+    height: 229px;
+    padding-top: 30px;
+    font-size: small;
+}
+
+.itemPrice {
+    /* background-color: pink; */
+    width: 256px;
+    height: 130px;
+    text-align: center;
+}
+
+.itemPrice span {
+    color: red;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.itemPrice button {
+    margin-top: 10px;
+    width: 80%;
+    height: 2em;
+}
+
+#disc {
+    text-decoration: line-through;
+    color: black;
+    font-size: small;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class-02</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Student Query Form</legend>
+            <form action="">
+                <input type="search" size="50" placeholder="Enter Name For Search" required><br><br>
+                
+                <label for="age">Select Age Range :</label><br>
+                <input type="range" id="age" size="50" ><br><br>
+                
+                <button type="button">Search</button>
+            </form>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Student Registration Form</legend>
+            <form action="">
+            <label for="name">Student Name: (Max 30 Characters)</label><br>
+            <input type="text" size="50"  id="name" maxlength="30" placeholder="Enter your name" required><br><br>
+            
+            <label for="fname">Father's Name: (Max 30 Characters)</label><br>
+            <input type="text" id="fname" size="50" placeholder="Enter your father's name" maxlength="30" required><br><br>
+            
+            <label for="name">Mother's Name: (Max 30 Characters)</label><br>
+            <input type="text" name="" size="50"  placeholder="Enter your mother's name" id="name" maxlength="30" required><br><br>
+            
+            <label for="gmail">Gmail: </label><br>
+            <input type="email" placeholder="Enter your gmail address" id="gmail" size="50" required><br><br>
+    
+            <label for="phone">Phone: </label><br>
+            <input type="tel" name="" placeholder="Enter your number" size="50" id="phone" required><br><br>
+
+            <label for="address">Address:</label><br>
+            <textarea id="address" cols="50" rows="10" placeholder="Enter your address...."></textarea><br><br>
+
+            <label for="country">Select Your country</label>
+            <select id="country">
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="Japan">Japan</option>
+            </select><br><br>
+
+            <label>Enter your hobbies:</label><br>
+                <input type="checkbox" id="reading">
+                <label for="reading">Reading</label>
+                
+                <input type="checkbox" id="gaming">
+                <label for="gaming">Gaming</label>
+                
+                <input type="checkbox" id="fish">
+                <label for="fish">Fishing</label>
+                
+                <input type="checkbox" id="sport">
+                <label for="sport">Sport</label><br><br>
+
+            <label>Enter your gender:</label>
+                <input type="radio" name="gender" id="male"> 
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female"> 
+                <label for="female">Female</label><br><br>
+
+
+            <label for="photo">Your Photo:</label><br>
+            <input type="file" id="photo" accept="image/*"><br><br>
+
+            <label for="bdate">Enter Date of Birth:</label>
+            <input type="date" id="bdate"><br><br>
+
+            <label for="st_age">Enter your Age:</label><br>
+            <input type="number" id="st_age" placeholder="Enter your age"><br><br>
+
+            <label for="color">Select your Favorite color:</label>
+            <input type="color" id="color"><br><br>
+            
+            <label for="time">When do you wake up:</label>
+            <input type="time" id="time"><br><br>
+            
+            <label for="idate">When do your want to participate in the interview:</label><br>
+            <input type="datetime-local" id="idate" size="50"  name=""><br><br>
+            
+            <label for="fv_month">Enter your favorite month:</label><br>
+            <input type="month" name="" size="50"  id="fv_month"><br><br>
+            
+            <label for="pass">Enter your Password For Register:</label><br>
+            <input type="password" placeholder="Enter Password" size="50"  id="pass"><br><br>
+            
+            <label for="fblink">Enter Facebook Link:</label><br>
+            <input type="url" size="50" placeholder="Enter Facebook URL" id="fblink"><br><br>
+
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </form>
+        </fieldset>
+    </form>
+</body>
+</html>
