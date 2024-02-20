@@ -32,7 +32,7 @@ body {
     width: 100%;
     height: 50%;
 } */
-#b1 {
+/* #b1 {
     height: 20vh;
     background-color: rgb(34, 170, 45);
     color: white;
@@ -51,5 +51,17 @@ body {
 }
 
 #b2:hover {
+    background-color: #115517;
+} */
+
+.hw_button {
+    color: white;
+    height: 30vh;
+    background-color: rgb(34, 170, 45);
+    margin-top: 5vh;
+    font-size: larger;
+}
+
+.hw_button:hover {
     background-color: #115517;
 }
