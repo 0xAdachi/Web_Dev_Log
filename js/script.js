@@ -1,1 +1,0 @@
-window.location.replace('HTML/Class-13/index.html');

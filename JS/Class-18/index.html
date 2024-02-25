@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Number Grader</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h2>Enter Subject Numbers :</h2>
+            <form action="">
+                <label for="math">Math : </label>
+                <input id="math" type="number" required><br>
+                
+                <label for="phys">Physics : </label>
+                <input id="phys" type="number"><br>
+                
+                <label for="chem">Chemistry : </label>
+                <input id="chem" type="number"><br>
+                
+                <label for="hist">History : </label>
+                <input id="hist" type="number"><br>
+                
+                <label for="it">IT : </label>
+                <input id="it" type="number"><br>
+
+                <button id="btn" type="button">Grade Numbers</button>
+                
+            </form>
+
+            <div class="output">
+                <p>Your Grade in Math is : <span id="math_grade" class="grade"></span></p>
+                <p>Your Grade in Physics is : <span id="phys_grade" class="grade"></span></p>
+                <p>Your Grade in Chemistry is : <span id="chem_grade" class="grade"></span></p>
+                <p>Your Grade in History is : <span id="hist_grade" class="grade"></span></p>
+                <p>Your Grade in IT is : <span id="it_grade" class="grade"></span></p>
+                <p>Your average number in test is : <span id="average_grade"></span></p>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>

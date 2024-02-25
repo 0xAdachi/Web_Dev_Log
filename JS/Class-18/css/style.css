@@ -1,0 +1,76 @@
+* {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: #ffb7c5 ; */
+    background-color: #0E0E10 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 40vw;
+    height: 80vh;
+    /* background-color: #FDE6EC; */
+    background-color: #21A179;
+    color: white;
+}
+
+.container h2 {
+    padding: 10px 0px 10px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container label {
+    padding-left: 20px;
+}
+.container input {
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.container #math {
+    margin-left: 33px;
+}
+
+.container #phys {
+    margin-left: 18px;
+}
+
+.container #hist {
+    margin-left: 19px;
+}
+
+.container #it {
+    margin-left: 52px;
+}
+
+.container #btn {
+    color: white;
+    background-color: rgb(34, 170, 45);
+    margin: 20px;
+    padding: 8px;
+}
+
+.container #btn:hover {
+    background-color: #115517;
+}
+
+.container .output p {
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+
+.container .output .grade {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: black;
+}
