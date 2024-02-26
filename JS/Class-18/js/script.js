@@ -108,18 +108,14 @@ function printOutput(mathGrade, physGrade, chemGrade, histGrade, itGrade, allNum
         document.getElementById("math_grade").textContent = mathGrade[0];
         document.getElementById("math_grade").style.color = mathGrade[1];
 
-        
         document.getElementById("phys_grade").textContent = physGrade[0];
         document.getElementById("phys_grade").style.color = physGrade[1];
-
        
         document.getElementById("chem_grade").textContent = chemGrade[0];
         document.getElementById("chem_grade").style.color = chemGrade[1];
-
         
         document.getElementById("hist_grade").textContent = histGrade[0];
         document.getElementById("hist_grade").style.color = histGrade[1];
-
 
         document.getElementById("it_grade").textContent = itGrade[0];
         document.getElementById("it_grade").style.color = itGrade[1];
