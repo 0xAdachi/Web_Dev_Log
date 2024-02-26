@@ -1,5 +1,16 @@
 'use strict';
 
+function main()
+{
+    let mathNum = document.getElementById("math").value;
+    let physNum = document.getElementById("phys").value;
+    let chemNum = document.getElementById("chem").value;
+    let histNum = document.getElementById("hist").value;
+    let itNum = document.getElementById("it").value;
+    checkGradeValidity(mathNum, physNum, chemNum, histNum, itNum);
+}
+
+
 // Checks if the input grade is an actual grade that has range from 0 to 100
 function properGrade(grade)
 {
@@ -13,39 +24,18 @@ function properGrade(grade)
 }
 
 // Checks if all the grades in input field are valid grades
-function checkGradeValidity()
+function checkGradeValidity(mathNum, physNum, chemNum, histNum, itNum)
 {
-    let mathNum = document.getElementById("math").value;
-    let physNum = document.getElementById("phys").value;
-    let chemNum = document.getElementById("chem").value;
-    let histNum = document.getElementById("hist").value;
-    let itNum = document.getElementById("it").value;
-
     if (properGrade(mathNum) && properGrade(physNum) && properGrade(chemNum) && properGrade(histNum) && properGrade(itNum))
     {
         // console.log("all grades are valid");
         let mathGrade = gradeNumber(mathNum);
-        document.getElementById("math_grade").textContent = mathGrade[0];
-        document.getElementById("math_grade").style.color = mathGrade[1];
-
         let physGrade = gradeNumber(physNum);
-        document.getElementById("phys_grade").textContent = physGrade[0];
-        document.getElementById("phys_grade").style.color = physGrade[1];
-
         let chemGrade = gradeNumber(chemNum);
-        document.getElementById("chem_grade").textContent = chemGrade[0];
-        document.getElementById("chem_grade").style.color = chemGrade[1];
-
         let histGrade = gradeNumber(histNum);
-        document.getElementById("hist_grade").textContent = histGrade[0];
-        document.getElementById("hist_grade").style.color = histGrade[1];
-
         let itGrade = gradeNumber(itNum);
-        document.getElementById("it_grade").textContent = itGrade[0];
-        document.getElementById("it_grade").style.color = itGrade[1];
-
-        document.getElementById("average_grade").textContent = averageGrade(mathNum, physNum, chemNum, histNum, itNum);
-
+        let allNum = [mathNum, physNum, chemNum, histNum, itNum];
+        printOutput(mathGrade, physGrade, chemGrade, histGrade, itGrade, allNum);
     } else
     {
         alert("Numbers range from 0 to 100");
@@ -91,11 +81,40 @@ function gradeNumber(gradeNum)
     return [grade, color];
 }
 
-// Returns the average grade for 5 subjects
-function averageGrade(mathNum, physNum, chemNum, histNum, itNum)
+// Returns the average of the array of numbers
+function averageGrader(numbers)
 {
-    let totalSum = Number(mathNum) + Number(physNum) + Number(chemNum) + Number(histNum) + Number(itNum);
-    return totalSum / 5;
+    let sum = 0;
+    for(let i = 0; i < numbers.length; i++)
+    {
+        sum += Number(numbers[i]);
+    }
+    return sum / numbers.length;
 }
 
-document.getElementById("btn").addEventListener("click", checkGradeValidity);
+// Prints the output on the document file
+function printOutput(mathGrade, physGrade, chemGrade, histGrade, itGrade, allNum)
+{
+        document.getElementById("math_grade").textContent = mathGrade[0];
+        document.getElementById("math_grade").style.color = mathGrade[1];
+
+        
+        document.getElementById("phys_grade").textContent = physGrade[0];
+        document.getElementById("phys_grade").style.color = physGrade[1];
+
+       
+        document.getElementById("chem_grade").textContent = chemGrade[0];
+        document.getElementById("chem_grade").style.color = chemGrade[1];
+
+        
+        document.getElementById("hist_grade").textContent = histGrade[0];
+        document.getElementById("hist_grade").style.color = histGrade[1];
+
+
+        document.getElementById("it_grade").textContent = itGrade[0];
+        document.getElementById("it_grade").style.color = itGrade[1];
+
+        document.getElementById("average_grade").textContent = averageGrader(allNum);
+}
+
+document.getElementById("btn").addEventListener("click", main);
