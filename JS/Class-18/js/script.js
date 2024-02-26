@@ -7,7 +7,22 @@ function main()
     let chemNum = document.getElementById("chem").value;
     let histNum = document.getElementById("hist").value;
     let itNum = document.getElementById("it").value;
-    checkGradeValidity(mathNum, physNum, chemNum, histNum, itNum);
+    let allNum = [mathNum, physNum, chemNum, histNum, itNum];
+
+    if(checkGradeValidity(allNum))
+    {
+        // console.log("all grades are valid");
+        let mathGrade = gradeNumber(mathNum);
+        let physGrade = gradeNumber(physNum);
+        let chemGrade = gradeNumber(chemNum);
+        let histGrade = gradeNumber(histNum);
+        let itGrade = gradeNumber(itNum);
+        printOutput(mathGrade, physGrade, chemGrade, histGrade, itGrade, allNum);
+    } else 
+    {
+        alert("Numbers range from 0 to 100");
+    }
+
 }
 
 
@@ -23,23 +38,18 @@ function properGrade(grade)
     }
 }
 
-// Checks if all the grades in input field are valid grades
-function checkGradeValidity(mathNum, physNum, chemNum, histNum, itNum)
+// Checks if all the numbers are proper grade numbers
+function checkGradeValidity(allNum)
 {
-    if (properGrade(mathNum) && properGrade(physNum) && properGrade(chemNum) && properGrade(histNum) && properGrade(itNum))
+    let isValid = true;
+    for(let i = 0; i < allNum.length; i++)
     {
-        // console.log("all grades are valid");
-        let mathGrade = gradeNumber(mathNum);
-        let physGrade = gradeNumber(physNum);
-        let chemGrade = gradeNumber(chemNum);
-        let histGrade = gradeNumber(histNum);
-        let itGrade = gradeNumber(itNum);
-        let allNum = [mathNum, physNum, chemNum, histNum, itNum];
-        printOutput(mathGrade, physGrade, chemGrade, histGrade, itGrade, allNum);
-    } else
-    {
-        alert("Numbers range from 0 to 100");
+        if(!properGrade(allNum[i]))
+        {
+            isValid = false;
+        }
     }
+    return isValid;
 }
 
 // Gives grade based on input number
