@@ -17,7 +17,8 @@ function main()
         let chemGrade = gradeNumber(chemNum);
         let histGrade = gradeNumber(histNum);
         let itGrade = gradeNumber(itNum);
-        printOutput(mathGrade, physGrade, chemGrade, histGrade, itGrade, allNum);
+        let allGrades = [mathGrade, physGrade, chemGrade, histGrade, itGrade];
+        printOutput(allGrades, allNum);
     } else 
     {
         alert("Numbers range from 0 to 100");
@@ -103,24 +104,24 @@ function averageGrader(numbers)
 }
 
 // Prints the output on the document file
-function printOutput(mathGrade, physGrade, chemGrade, histGrade, itGrade, allNum)
+function printOutput(allGrades, allNum)
 {
-        document.getElementById("math_grade").textContent = mathGrade[0];
-        document.getElementById("math_grade").style.color = mathGrade[1];
+        document.getElementById("math_grade").textContent = allGrades[0][0];
+        document.getElementById("math_grade").style.color = allGrades[0][1];
 
-        document.getElementById("phys_grade").textContent = physGrade[0];
-        document.getElementById("phys_grade").style.color = physGrade[1];
+        document.getElementById("phys_grade").textContent = allGrades[1][0];
+        document.getElementById("phys_grade").style.color = allGrades[1][1];
        
-        document.getElementById("chem_grade").textContent = chemGrade[0];
-        document.getElementById("chem_grade").style.color = chemGrade[1];
+        document.getElementById("chem_grade").textContent = allGrades[2][0];
+        document.getElementById("chem_grade").style.color = allGrades[2][1];
         
-        document.getElementById("hist_grade").textContent = histGrade[0];
-        document.getElementById("hist_grade").style.color = histGrade[1];
+        document.getElementById("hist_grade").textContent = allGrades[3][0];
+        document.getElementById("hist_grade").style.color = allGrades[3][1];
 
-        document.getElementById("it_grade").textContent = itGrade[0];
-        document.getElementById("it_grade").style.color = itGrade[1];
+        document.getElementById("it_grade").textContent = allGrades[4][0];
+        document.getElementById("it_grade").style.color = allGrades[4][1];
 
-        document.getElementById("average_grade").textContent = averageGrader(allNum);
+        document.getElementById("average_grade").textContent = averageGrader(allNum).toFixed(2);
 }
 
 document.getElementById("btn").addEventListener("click", main);
