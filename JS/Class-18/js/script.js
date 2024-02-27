@@ -106,22 +106,15 @@ function averageGrader(numbers)
 // Prints the output on the document file
 function printOutput(allGrades, allNum)
 {
-        document.getElementById("math_grade").textContent = allGrades[0][0];
-        document.getElementById("math_grade").style.color = allGrades[0][1];
-
-        document.getElementById("phys_grade").textContent = allGrades[1][0];
-        document.getElementById("phys_grade").style.color = allGrades[1][1];
-       
-        document.getElementById("chem_grade").textContent = allGrades[2][0];
-        document.getElementById("chem_grade").style.color = allGrades[2][1];
-        
-        document.getElementById("hist_grade").textContent = allGrades[3][0];
-        document.getElementById("hist_grade").style.color = allGrades[3][1];
-
-        document.getElementById("it_grade").textContent = allGrades[4][0];
-        document.getElementById("it_grade").style.color = allGrades[4][1];
-
-        document.getElementById("average_grade").textContent = averageGrader(allNum).toFixed(2);
+    let elemIdList = ["math_grade","phys_grade","chem_grade","hist_grade","it_grade"];
+    
+    for(let i = 0; i < elemIdList.length; i++)
+    {
+        document.getElementById(elemIdList[i]).textContent = allGrades[i][0];
+        document.getElementById(elemIdList[i]).style.color = allGrades[i][1];
+    }
+    
+    document.getElementById("average_grade").textContent = averageGrader(allNum).toFixed(2);
 }
 
 document.getElementById("btn").addEventListener("click", main);
