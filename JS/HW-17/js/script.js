@@ -61,7 +61,7 @@ function closeSideNav() {
 openBtn.addEventListener("click", () => {
     document.getElementById("sideNav").style.width = "250px";
     document.getElementById("container").style.marginLeft = "250px";
-    document.getElementById("container").style.marginTop = "-16px";
+    document.getElementById("container").style.marginTop = "-17px";
     curtain.style.width = "100vw";
 });
 
