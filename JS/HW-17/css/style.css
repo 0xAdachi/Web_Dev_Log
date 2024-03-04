@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: solid 1px red; */
+    cursor: none;
+}
+
+body {
+    background-color: white;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .86);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+.sideNav {
+    color: white;
+    height: 100%;
+    width: 0;
+    max-width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s ease;
+    padding-top: 60px;
+}
+
+.sideNav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.openBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: aliceblue;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.sideNav .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 46px;
+    margin-left: 50px;
+    padding: 10px;
+}
+
+.sideNav a:hover {
+    color: #F1F1F1;
+}
+
+.curtain {
+    width: 0;
+    height: 100vh;
+    opacity: 0.3;
+    position: absolute;
+    background-color: lime;
+}
+
+.sc {
+    background-color: black;
+    color: white;
+    width: 30vw;
+    height: 71vh;
+    overflow-y: scroll;
+    padding: 10px;
+    font-family:"Calibri", sans-serif;
+}
+
+.sc::-webkit-scrollbar {
+    width: 0;
+}
+
+#curse {
+    display: inline-block;
+    position: absolute;
+    color: lime;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+}
+
+
+.logger {
+    font-family: Arial, Helvetica, sans-serif;
+    color: lime;
+    /* background-color: hotpink; */
+    margin-bottom: 50px;
+}
+
+.logger h1 {
+    margin-left: -2px;
+    opacity: 0.5;
+}
+
+.logger label {
+    opacity: 0.7;
+}
+
+.logger #password {
+    margin-left: 3.5px;
+}
+
+.logger form i {
+    margin-left: -30px;
+    /* cursor: pointer; */
+    color: black;
+}
+
+.logger button {
+    margin-left: 16px;
+    padding: 3px;
+    background-color: black;
+    color: white;
+}

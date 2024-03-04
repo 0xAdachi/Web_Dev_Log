@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<title>Perlin snakes</title>
+<style>
+.centerbox {
+  /* flexbox, por favor */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+
+  width: 100%;
+  height: 100%;
+  margin: 0; padding: 0;
+}
+body, html { width: 100%; height: 100%; padding: 0; margin: 0; }
+canvas {
+  /*border-radius: 30px;*/
+  box-shadow: 0 0 10px #777;
+}
+
+body {
+  background-color: #eee;
+}
+</style>
+<div class='centerbox'>
+  <canvas></canvas>
+  <input type=button value="Save"/>
+</div>
+<script src="perlin.js"></script>
+<script src="p.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"85c9edf16eb13378","r":1,"version":"2024.2.1","token":"ab793e138ebf43cab4d927269b357f65"}' crossorigin="anonymous"></script>

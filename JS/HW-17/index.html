@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW 17</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+</head>
+<body>
+    <div id="curse">&lt; /&gt;</div>
+
+    <div class="sideNav" id="sideNav">
+        <a href="javascript:void(0)" class="closeBtn">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="curtain"></div>
+
+    <div class="container" id="container">
+        <span class="openBtn"> &#9776; </span>
+
+        <div class="logger">
+            <h1>Sign In</h1>
+            <form method="post" onsubmit="return false;">
+                <p>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username">
+                </p>
+                <p>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" />
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                </p>
+                <button type="submit" id="submit" class="submit">Log In</button>
+            </form>
+        </div>
+
+        <div class="sc">
+            <pre class="out"></pre>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
+
+
+
