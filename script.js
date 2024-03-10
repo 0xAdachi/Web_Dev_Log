@@ -1,1 +1,1 @@
-window.location.replace('JS/HW-17/index.html');
+window.location.replace('JS/changeCssFile/index.html');

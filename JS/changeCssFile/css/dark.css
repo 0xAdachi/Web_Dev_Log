@@ -1,0 +1,8 @@
+.container {
+    background-color: black;
+    color: white;
+}
+
+.container p {
+    font-family: sans-serif;
+}
