@@ -1,1 +1,1 @@
-window.location.replace('JS/changeCssFile/index.html');
+window.location.replace('JS/dynamicInputField/index.html');
