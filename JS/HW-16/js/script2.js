@@ -23,37 +23,13 @@ class Grade
     let evalGrade = "";
     let color = "";
 
-    if(this.value >= 0 && this.value < 33)
-    {
-      evalGrade = "Fail";
-      color = "red";
-    } else if(this.value >= 33 && this.value < 40)
-    {
-      evalGrade = "D";
-      color = "#ff7300";
-    } else if(this.value >= 40 && this.value < 50)
-    {
-      evalGrade = "C";
-      color = "#fffb00";
-    } else if(this.value >= 50 && this.value < 60)
-    {
-      evalGrade = "B";
-      color = "blue";
-    } else if(this.value >= 60 && this.value < 70)
-    {
-      evalGrade = "A-";
-      color = "lime";
-    } else if(this.value >= 70 && this.value < 80)
-    {
-      evalGrade = "A";
-      color = "pink";
-    } else if(this.value >= 80 && this.value <= 100)
-    {
-      evalGrade = "A+";
-      color = "gold";
-    }
-
-    return {evalGrade: evalGrade, color: color};
+    if(this.value >= 0  && this.value < 33)   return {evalGrade: "Fail", color: "red"};
+    if(this.value >= 33 && this.value < 40)   return {evalGrade: "D", color: "#ff7300"};
+    if(this.value >= 40 && this.value < 50)   return {evalGrade: "C", color: "#fffb00"};
+    if(this.value >= 50 && this.value < 60)   return {evalGrade: "B", color: "blue"};
+    if(this.value >= 60 && this.value < 70)   return {evalGrade: "A-", color: "lime"};
+    if(this.value >= 70 && this.value < 80)   return {evalGrade: "A", color: "pink"};
+    if(this.value >= 80 && this.value <= 100) return {evalGrade: "A+", color: "gold"}
   }
 
   static getAverage = (...Grades) => Grades.map(grade => Number(grade.value)).reduce((accumulator, currVal) => accumulator + currVal, 0) / Grades.length;
