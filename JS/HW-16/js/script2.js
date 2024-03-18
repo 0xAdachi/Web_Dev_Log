@@ -20,9 +20,6 @@ class Grade
 
   get evalute()
   {
-    let evalGrade = "";
-    let color = "";
-
     if(this.value >= 0  && this.value < 33)   return {evalGrade: "Fail", color: "red"};
     if(this.value >= 33 && this.value < 40)   return {evalGrade: "D", color: "#ff7300"};
     if(this.value >= 40 && this.value < 50)   return {evalGrade: "C", color: "#fffb00"};
@@ -33,7 +30,9 @@ class Grade
   }
 
   static getAverage = (...Grades) => Grades.map(grade => Number(grade.value)).reduce((accumulator, currVal) => accumulator + currVal, 0) / Grades.length;
+
   get value() { return this.grade; }
+  
   set value(value) {this.grade = value; }
 }
 
