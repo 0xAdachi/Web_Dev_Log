@@ -2,6 +2,8 @@
 
 const canva = document.getElementById("canvas");
 const ctx = canva.getContext("2d");
+let x = 0, y;
+const dx = 1.5;
 
 // ctx.beginPath();
 // ctx.moveTo(0,0);
@@ -37,6 +39,10 @@ function loop()
 
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, cwidth, cheight);
+
+    ctx.fillStyle ="#FF0000";
+    ctx.fillRect(x, 0, 100, 100);
+    x += dx;
 }
 
 loop();

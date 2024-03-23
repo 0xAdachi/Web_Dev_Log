@@ -18,11 +18,11 @@ togglePassword.addEventListener("click", () => {
 })
 
 // Do when mouse is moving
-window.addEventListener("mousemove", (e) => {
-    curse.style.left = e.pageX + "px";
-    curse.style.top  = e.pageY + "px";
+window.addEventListener("mousemove", ({pageX, pageY, target}) => {
+    curse.style.left = pageX + "px";
+    curse.style.top  = pageY + "px";
 
-    if(e.target.classList.contains("sc") || e.target.classList.contains("out"))
+    if(target.classList.contains("sc") || target.classList.contains("out"))
     {
         curse.textContent = "{ }";
         curse.style.color = "lime";

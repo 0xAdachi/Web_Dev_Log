@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(46, 46, 46);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container table {
+  border: 1px solid red;
+  color: black;
+}
+
+.container table td {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  text-align: center;
+  user-select: none;
+}
