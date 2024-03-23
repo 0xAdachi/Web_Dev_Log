@@ -5,7 +5,7 @@ class Grade
   grade;
   constructor(grade)
   {
-    this.grade = grade;
+    this.grade = grade ?? 0;
   }
 
   isProperGrade = () => this.grade !== "" && this.grade >= 0 && this.grade <= 100 ? true : false;

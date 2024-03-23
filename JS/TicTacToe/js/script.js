@@ -10,9 +10,9 @@ const compareArrays = (arr1, arr2) => arr1.length === arr2.length && arr1.every(
 // const arrayColumn = (arr, columnNum) => arr.map(currArr => currArr[columnNum]);
 const arrayColumn = (board, colNum) => board.map(currArr => currArr[colNum]);
 
-gameBoard.addEventListener("click", (e) => {
-  currRow = e.target.parentNode.rowIndex;
-  currCol = e.target.cellIndex;
+gameBoard.addEventListener("click", ({target}) => {
+  currRow = target.parentNode.rowIndex;
+  currCol = target.cellIndex;
   if(gameBoard.rows[currRow].cells[currCol].innerHTML == "")
   {
     move = move === 'X' ? 'O' : 'X';
