@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const canva = document.getElementById("canvas");
 const ctx = canva.getContext("2d");
