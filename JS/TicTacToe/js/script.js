@@ -3,8 +3,10 @@
 const gameBoard = document.getElementById("game-board");
 let move = 'X';
 let currRow, currCol;
-// let board = new Array(new Array(3).fill(""), new Array(3).fill(""), new Array(3).fill(""));
-let board = new Array.fill(new Array(3).fill(""));
+let board = new Array(new Array(3).fill(""), new Array(3).fill(""), new Array(3).fill(""));
+// let board2 = new Array(3).fill(new Array(3).fill(""));
+// console.log(board);
+// console.log(board2);
 
 const compareArrays = (arr1, arr2) => arr1.length === arr2.length && arr1.every((currValue, index) => currValue === arr2[index]);
 // const arrayColumn = (arr, columnNum) => arr.map(currArr => currArr[columnNum]);
