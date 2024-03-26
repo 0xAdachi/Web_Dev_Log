@@ -36,7 +36,7 @@ export class Pipe {
     for(let pipe of pipes){
       if(pipe.getPipeX < 0){
         pipes.shift();
-        pipes.push(new Pipe(cwidth, 0, 100, Math.floor(Math.random()*(600-200+1)) + 200));
+        pipes.push(new Pipe(cwidth, Math.floor(Math.random()*800), 150 * 0.5625, 300));
         return true;
       }
     }

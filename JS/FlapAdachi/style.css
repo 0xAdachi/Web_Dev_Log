@@ -27,7 +27,6 @@ canvas {
   position: absolute;
   bottom: 50px;
   left: 50px;
-  /* background-color: pink; */
   font-size: 30px;
   user-select: none;
   visibility: hidden;
@@ -45,10 +44,21 @@ canvas {
   display: none;
   user-select: none;
 }
+.retry::before {
+  content: "";
+  transition: 3s;
+  animation: game-over-message 3s linear infinite alternate;
+}
 
 @keyframes dot-animation {
   0% { content: ""; }
   25% { content: "."; }
   50% { content: ".."; }
   75% { content: "..."; }
+}
+
+@keyframes game-over-message {
+  0% { content: "Game Over"; }
+  50% { content: "Click to Retry"; }
+  100% { content: "Game Over"; }
 }

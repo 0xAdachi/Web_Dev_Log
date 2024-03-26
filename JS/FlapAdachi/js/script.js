@@ -35,7 +35,7 @@ let gravity = 0.3;  // gravity
 const pipeImg = new Image();
 let pipes = [];
 for(let i = 1; i < 4; i++) {
-  pipes.push(new Pipe(i * 400, 0, 100, Math.floor(Math.random()*(600-200+1)) + 200))
+  pipes.push(new Pipe(i * 400, Math.floor(Math.random()*200), 150 * 0.5625, 300));
 }
 
 // ### Main Game Event Loop ### //
