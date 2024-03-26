@@ -107,9 +107,9 @@ const loadImage = (img, src) =>
 
 async function loadAllImages() {
   try {
-    await loadImage(bgImg, "./bg.png");
-    await loadImage(playerImg, "./adachi.png");
-    await loadImage(pipeImg, "./shimamura.png");
+    await loadImage(bgImg, "./assets/bg.png");
+    await loadImage(playerImg, "./assets/adachi.png");
+    await loadImage(pipeImg, "./assets/shimamura.png");
     animationLoop();
   } catch (error) {
     console.error("Loading Images Failed", error);
