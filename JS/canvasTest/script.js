@@ -22,7 +22,7 @@ window.addEventListener("mousemove", ({pageX, pageY}) => {
 
 // console.log(`dx: ${dx}, dy: ${dy}`);
 
-function loop(event)
+function loop()
 {
     console.log(mousex);
     window.requestAnimationFrame(loop);

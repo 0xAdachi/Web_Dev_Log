@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  z-index: -999;
+}
+
+.score {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  /* background-color: pink; */
+  font-size: 30px;
+  user-select: none;
+}
+
+#gameover {
+  padding: 25px;
+  background-color: red;
+  color: gold;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  user-select: none;
+}
