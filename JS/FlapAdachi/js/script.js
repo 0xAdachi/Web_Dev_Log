@@ -6,7 +6,9 @@ import {Pipe} from "./Pipe.js";
 let score = 0;
 let gameState = true;
 const scoreKeeper = document.getElementById("score");
+const scoreboard = document.querySelector(".score");
 const gameKeeper = document.getElementById("gameover");
+const loadingScreen = document.querySelector(".loading");
 
 // ### Setting up Canvas ### //
 /** @type {HTMLCanvasElement} */
@@ -111,9 +113,11 @@ async function loadAllImages() {
     await loadImage(playerImg, "./assets/adachi.png");
     await loadImage(pipeImg, "./assets/shimamura.png");
     animationLoop();
+    scoreboard.style.visibility = "visible";
+    loadingScreen.style.display = "none";
   } catch (error) {
     console.error("Loading Images Failed", error);
   }
 }
 
-loadAllImages();
+setTimeout(() => {loadAllImages()}, 2000);
