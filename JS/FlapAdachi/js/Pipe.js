@@ -18,7 +18,7 @@ export class Pipe {
 
   // ### Physics ### //
   physics(){
-    let dx = -5;
+    let dx = -6;
     this.pipeX += dx;
   }
 
@@ -32,11 +32,11 @@ export class Pipe {
    }
   }
 
-  static checkBoundary(cwidth, pipes){
+  static checkBoundary(cwidth, cheight, pipes){
     for(let pipe of pipes){
       if(pipe.getPipeX < 0){
         pipes.shift();
-        pipes.push(new Pipe(cwidth, Math.floor(Math.random()*800), 150 * 0.5625, 300));
+        pipes.push(new Pipe(cwidth, Math.floor(Math.random() * (cheight - 200)), 150 * 0.5625, 300));
         return true;
       }
     }

@@ -61,7 +61,7 @@ function animationLoop() {
   // ctx.fillRect(playerX, playerY, playerWidth, playerHeight);
   ctx.drawImage(playerImg ,playerX, playerY, playerWidth, playerHeight);
   // ### Draw pipes and apply physics ### //
-  if(Pipe.checkBoundary(cwidth, pipes)) score++;
+  if(Pipe.checkBoundary(cwidth, cheight, pipes)) score++;
   for(let pipe of pipes){
     pipe.physics();
     if(pipe.checkCollision(playerX, playerY, playerWidth, playerHeight)) gameState = false;
