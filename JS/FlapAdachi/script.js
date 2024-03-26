@@ -16,9 +16,7 @@ const cwidth = document.documentElement.clientWidth;
 const cheight = document.documentElement.clientHeight;
 ctx.canvas.width = cwidth;
 ctx.canvas.height = cheight;
-
 const bgImg = new Image();
-bgImg.src = "./bg.png";
 
 // ### Player properties ### //
 const playerWidth = 100, 
@@ -26,7 +24,6 @@ const playerWidth = 100,
 let playerX = cwidth/2 - playerWidth/2, 
     playerY = cheight/2 - playerHeight/2;
 const playerImg = new Image();
-playerImg.src = "./adachi.png";
 
 // ### Physics ### //
 let dy = 1;  // y - velocity
@@ -34,12 +31,10 @@ let gravity = 0.3;  // gravity
 
 // ### Pipes ### //
 const pipeImg = new Image();
-pipeImg.src = "./shimamura.png";
 let pipes = [];
 for(let i = 1; i < 4; i++) {
   pipes.push(new Pipe(i * 400, 0, 100, Math.floor(Math.random()*(600-200+1)) + 200))
 }
-console.log(pipes);
 
 // ### Main Game Event Loop ### //
 function animationLoop() {
@@ -74,7 +69,6 @@ function animationLoop() {
   scoreKeeper.textContent = score;
 }
 }
-playerImg.onload = animationLoop();
 
 // ### Collision Checking ### //
 function checkCollision() {
@@ -88,17 +82,38 @@ function checkCollision() {
   }
 }
 
+// ### Detecting Player Inputs ### //
 window.addEventListener("keydown", ({key}) => {
   if( key === " ") {
     dy = -10;  // add flapping
   }
-})
+});
 window.addEventListener("mousedown", ({button}) => {
   if( button === 0) {
     dy = -10;  // add flapping
   }
-})
-
+});
 gameKeeper.addEventListener("click", () => {
   window.location.reload();
-})
+});
+
+// ### Run the game only after all the images has been loaded ### //
+const loadImage = (img, src) =>
+  new Promise((resolve, reject) => {
+    img.src = src;
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+  });
+
+async function loadAllImages() {
+  try {
+    await loadImage(bgImg, "./bg.png");
+    await loadImage(playerImg, "./adachi.png");
+    await loadImage(pipeImg, "./shimamura.png");
+    animationLoop();
+  } catch (error) {
+    console.error("Loading Images Failed", error);
+  }
+}
+
+loadAllImages();
