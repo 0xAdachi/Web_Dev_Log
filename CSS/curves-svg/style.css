@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: #002233;
+  color: white;
+}
+
+section {
+  min-height: 300px;
+}
+
+.wave {
+  width: 100%;
+  /* height: 400px; */
+  /* aspect-ratio: 16 / 9; */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* position: absolute; */
+  /* z-index: 999; */
+}
+
+.layer {
+  background-image: url("./wave.svg");  
+}

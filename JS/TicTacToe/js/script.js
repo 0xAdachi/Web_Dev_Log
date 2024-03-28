@@ -4,23 +4,21 @@ const gameBoard = document.getElementById("game-board");
 let move = 'X';
 let currRow, currCol;
 let board = new Array(new Array(3).fill(""), new Array(3).fill(""), new Array(3).fill(""));
-// let board2 = new Array(3).fill(new Array(3).fill(""));
+// let board = new Array(3).fill(new Array(3).fill(""));
 // console.log(board);
 // console.log(board2);
 
 const compareArrays = (arr1, arr2) => arr1.length === arr2.length && arr1.every((currValue, index) => currValue === arr2[index]);
-// const arrayColumn = (arr, columnNum) => arr.map(currArr => currArr[columnNum]);
-const arrayColumn = (board, colNum) => board.map(currArr => currArr[colNum]);
+const arrayColumn = (arr, colNum) => arr.map(currArr => currArr[colNum]);
 
 gameBoard.addEventListener("click", ({target}) => {
   currRow = target.parentNode.rowIndex;
   currCol = target.cellIndex;
-  if(gameBoard.rows[currRow].cells[currCol].innerHTML == "")
+  if(gameBoard.rows[currRow]?.cells[currCol].innerHTML == "")
   {
     move = move === 'X' ? 'O' : 'X';
     gameBoard.rows[currRow].cells[currCol].innerHTML = move;
     board[currRow][currCol] = move;
-    // console.log(board);
     checkWin(board);
   }
 })

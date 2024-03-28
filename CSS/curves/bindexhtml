@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clip Path Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="test-element"></div>
+
+  <!-- Define the SVG path for the clip-path -->
+  <svg width="0" height="0" style="position: absolute">
+    <defs>
+      <!-- You can define any path here -->
+      <path id="clipPath" d="M50,0 L100,100 L0,100 Z" />
+    </defs>
+  </svg>
+</body>
+</html>

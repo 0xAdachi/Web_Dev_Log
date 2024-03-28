@@ -1,0 +1,7 @@
+/* Apply the clip-path to the test element */
+.test-element {
+  width: 200px;
+  height: 200px;
+  background-color: skyblue;
+  clip-path: url(#clipPath); /* Use the ID of the SVG path here */
+}
