@@ -25,10 +25,11 @@ gameBoard.addEventListener("click", ({target}) => {
     drawBoard(board, gameBoard);
     
     // ### AI Moves ### //
-    let {score, move} = minimax(board, AI_PLAYER);
+    let bestAImove = minimax(board, AI_PLAYER).move;
+    board[bestAImove] = AI_PLAYER;
+    let score = checkBoardState(board); 
     checkScore(score);
-    board[move] = AI_PLAYER;
-    drawBoard(board, gameBoard);    
+    drawBoard(board, gameBoard);
   }
 });
 
@@ -91,7 +92,7 @@ function drawBoard(board, gameBoard) {
 }
 
 function checkScore(score) {
-  if(score === 0) {
+  if(score === 'P') {
     gameState.textContent = "Playing Continues";
     gameState.style.color = "lime";
   } else if(score == 10) {

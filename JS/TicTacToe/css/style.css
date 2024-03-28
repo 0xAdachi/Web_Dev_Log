@@ -40,3 +40,13 @@
   color: lime;
   font-size: 2rem;
 }
+
+.reset {
+  padding: 10px;
+  background-color: #131317;
+  color: red;
+  position: absolute;
+  z-index: 1;
+  top: 2rem;
+  right: 2rem;
+}
