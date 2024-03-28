@@ -25,3 +25,18 @@
   text-align: center;
   user-select: none;
 }
+
+.game-state {
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 2rem;
+  z-index: 1;
+  font-family: Calibri;
+  font-size: 2rem;
+}
+
+#gameState {
+  color: lime;
+  font-size: 2rem;
+}
