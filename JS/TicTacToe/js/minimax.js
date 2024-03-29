@@ -13,10 +13,12 @@ const winCombs = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+let canPlay = true;
 const gameBoard = document.getElementById("game-board");
 const gameState = document.getElementById("gameState");
 
 gameBoard.addEventListener("click", ({target}) => {
+  if(canPlay) {
   let currRow = target.parentNode.rowIndex;
   let currCol = target.cellIndex;
   if(gameBoard.rows[currRow]?.cells[currCol].innerHTML == "") {
@@ -31,7 +33,7 @@ gameBoard.addEventListener("click", ({target}) => {
     checkScore(score);
     drawBoard(board, gameBoard);
   }
-});
+}});
 
 function checkBoardState(board) {
   for(let index in winCombs) {
@@ -72,14 +74,14 @@ function minimax(board, player) {
   return {score: bestScore, move: bestMove};
 }
 
-// const convertBoardTo2d = (board, board2d) => board.map((currVal, index) => board2d[Math.floor(index / 3)][index % 3] = currVal);
-const convertBoardTo2d = (board, board2d) => {
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++) {
-      board2d[i][j] = board[(i * 3) + j];
-    }
-  }
-};
+const convertBoardTo2d = (board, board2d) => board.map((currVal, index) => board2d[Math.floor(index / 3)][index % 3] = currVal);
+// const convertBoardTo2d = (board, board2d) => {
+//   for (let i = 0; i < 3; i++) {
+//     for (let j = 0; j < 3; j++) {
+//       board2d[i][j] = board[(i * 3) + j];
+//     }
+//   }
+// };
 
 function drawBoard(board, gameBoard) {
   let board2d = [["","",""],["","",""],["","",""]];
@@ -98,8 +100,10 @@ function checkScore(score) {
   } else if(score == 10) {
     gameState.textContent = "AI wins";
     gameState.style.color = "red";
+    canPlay = false;
   } else {
     gameState.textContent = "It's a TIE";
     gameState.style.color = "gray";
+    canPlay = false;
   }
 }
