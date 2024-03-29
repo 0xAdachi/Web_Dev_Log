@@ -1,6 +1,7 @@
 "use strict";
 
 // ### Game Constants ### //
+let counter = 0;
 const HUMAN_PLAYER = "O";
 const AI_PLAYER = "X";
 let board = new Array(9).fill("");
@@ -31,7 +32,7 @@ gameBoard.addEventListener("click", ({ target }) => {
       drawBoard(board, gameBoard);
 
       // ### AI figure outs the best move and takes it ### //
-      let bestAImove = minimax(board, 0, -Infinity, Infinity, AI_PLAYER).move;
+      let bestAImove = minimax(board, 0, AI_PLAYER).move;
       board[bestAImove] = AI_PLAYER;
       let score = checkBoardState(board);
       // ### we check if game is over or not ### //
@@ -59,7 +60,7 @@ function checkBoardState(board) {
   return "P";  // otherwise return that game is still in playing
 }
 
-function minimax(board, depth, alpha, beta, player) {
+function minimax(board, depth, player) {
   // ### First we check if the game is over, if yes we just return the winner score or tie ### //
   const winner = checkBoardState(board);
   if (winner !== "P") {
@@ -75,22 +76,16 @@ function minimax(board, depth, alpha, beta, player) {
   for (let index = 0; index < board.length; index++) {
     if (board[index] === "") {
       board[index] = player;  // take the valid move and check all possible futures
-      const { score } = minimax(board, depth + 1, alpha, beta, player === AI_PLAYER ? HUMAN_PLAYER : AI_PLAYER);
+      const { score } = minimax(board, depth + 1, player === AI_PLAYER ? HUMAN_PLAYER : AI_PLAYER);
       board[index] = "";
-      if (player === AI_PLAYER && score > bestScore) {
+      if (player === AI_PLAYER && score > bestScore || player === HUMAN_PLAYER && score < bestScore) {
         bestScore = score;  // update best score and best move accordingly with who's current player
         bestMove = index;
-        alpha = Math.max(alpha, bestScore);
-        if (beta <= alpha) break;
-      } else if (player === HUMAN_PLAYER && score < bestScore) {
-        bestScore = score;  // update best score and best move accordingly with who's current player
-        bestMove = index;
-        beta = Math.min(beta, score);
-        if (beta <= alpha) break;
       }
     }
   }
 
+  console.log(++counter);
   return { score: bestScore, move: bestMove };  // return the best score and best move
 }
 
