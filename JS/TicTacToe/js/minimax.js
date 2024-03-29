@@ -79,8 +79,8 @@ function minimax(board, depth, alpha, beta, player) {
       if (player === AI_PLAYER && score > bestScore) {
         bestScore = score;  // update best score and best move accordingly with who's current player
         bestMove = index;
-        // ### If a move is found that causes the current player's score to be worse than the opponent's best score, it can be safely pruned ### //
-        alpha = Math.max(alpha, bestScore);  
+        // ### If a move is found that causes the current player's score to be worse than the opponent's best score, it can be safely pruned (skipped) ### //
+        alpha = Math.max(alpha, bestScore);
         if (beta <= alpha) break;
       } else if (player === HUMAN_PLAYER && score < bestScore) {
         bestScore = score;  // update best score and best move accordingly with who's current player
