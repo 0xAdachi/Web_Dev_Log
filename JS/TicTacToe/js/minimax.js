@@ -66,7 +66,6 @@ function minimax(board, depth, alpha, beta, player) {
     if(player === AI_PLAYER) return { score: winner - depth, move: null };  // taking depth into account so ai will chose shortest win
     if(player === HUMAN_PLAYER) return { score: depth - winner, move: null };
   }
-
   // ### assume the best or worst possible future ### //
   let bestScore = player === AI_PLAYER ? -1000 : 1000;
   let bestMove = null;
