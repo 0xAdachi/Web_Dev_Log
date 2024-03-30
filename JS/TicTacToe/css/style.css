@@ -46,7 +46,7 @@
   background-color: #131317;
   color: red;
   position: absolute;
-  z-index: 1;
+  z-index: 999;
   top: 2rem;
   right: 2rem;
 }
