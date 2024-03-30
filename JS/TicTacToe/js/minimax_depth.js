@@ -64,8 +64,7 @@ function minimax(board, depth, player) {
   // ### First we check if the game is over, if yes we just return the winner score or tie ### //
   const winner = checkBoardState(board);
   if (winner !== "P") {
-    if(player === AI_PLAYER) return { score: winner - depth, move: null };  // taking depth into account so ai will chose shortest win
-    if(player === HUMAN_PLAYER) return { score: depth - winner, move: null };
+    return {score: winner - depth, move: null};  // taking depth into account so the AI will chose shortest win path
   }
 
   // ### assume the best or worst possible future ### //

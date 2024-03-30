@@ -63,8 +63,7 @@ function minimax(board, depth, alpha, beta, player) {
   // ### First we check if the game is over, if yes we just return the winner score or tie ### //
   const winner = checkBoardState(board);
   if (winner !== "P") {
-    if(player === AI_PLAYER) return { score: winner - depth, move: null };  // taking depth into account so ai will chose shortest win
-    if(player === HUMAN_PLAYER) return { score: depth - winner, move: null };
+    return {score: winner - depth, move: null};  // taking depth into account so the AI will chose shortest win path
   }
   // ### assume the best or worst possible future ### //
   let bestScore = player === AI_PLAYER ? -1000 : 1000;
@@ -85,7 +84,7 @@ function minimax(board, depth, alpha, beta, player) {
       } else if (player === HUMAN_PLAYER && score < bestScore) {
         bestScore = score;  // update best score and best move accordingly with who's current player
         bestMove = index;
-        beta = Math.min(beta, score);  // alpha beta pruning -> *83 line for desc
+        beta = Math.min(beta, score);  // alpha beta pruning -> *81 line for desc
         if (beta <= alpha) break;
       }
     }
