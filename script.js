@@ -1,1 +1,1 @@
-window.location.replace('./JS/TicTacToe/index.html');
+window.location.replace('./JS/WaveFunctionCollapse/index.html');
