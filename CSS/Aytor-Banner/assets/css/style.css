@@ -1,0 +1,133 @@
+/*
+Theme Name: Aytor;
+Version: 1.0.0;
+Author: 0xAdachi
+Author URI: 
+Tag: 
+Description: 
+
+
+Table of contents
+========================
+#### Common Section ####
+1) Header section 
+    1.1)Top Bar
+    1.2)Nav Bar
+#### Home page #####
+
+###### Common Section ######
+*/  
+
+:root {
+	--1st-primary-light: #ff6f61;
+	--2nd-primary-color-dark: #ff5645;
+	--hover-color: #151a32;
+	--text-color: #11161e;
+	--common-color: #fff;
+	--paragraph-color: #444;
+	--background-color: #f1f1f1;
+	--bg: #f1f3f4;
+	--black: #000;
+	--a6aab7: #a6aab7;
+    --font-family: "Josefin Sans", sans-serif;
+    --second-family: "Roboto", sans-serif
+}
+body{
+    font-family: "Roboto", sans-serif;
+}
+h1,h2, h3 , h4, h5, h6 ,a, button{
+    font-family: var(--font-family);
+}
+/* Top Bar */
+#top_bar{
+    background: var(--hover-color);
+    color: var(--common-color);
+    padding: 11px 0;
+}
+#top_bar .top_bar_start p{
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 175%;
+    color: var(--common-color);
+    overflow-x: hidden;
+
+}
+#top_bar .top_bar_start p span{
+    line-height: 162%;
+    color: var(--1st-primary-light);
+}
+#top_bar .top_bar_start p i{
+    color: var(--1st-primary-light);
+    padding-right: 8px;
+}
+
+#top_bar .top_bar_end ul li a{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: var(--common-color);
+    font-family: var(--second-family);
+}
+#top_bar .top_bar_end ul.settings li{
+    border-right: 1px solid var(--paragraph-color);
+    padding: 0 20px;
+}
+#top_bar .top_bar_end ul li select{
+    background: none;
+    border: none;
+    color: var(--common-color);
+}
+#top_bar .top_bar_end ul li select option{
+    background: var(--paragraph-color);
+    color: var(--bg)
+}
+#top_bar .top_bar_end ul.social_icon{
+    margin-left: 20px;
+}
+#top_bar .top_bar_end ul.social_icon li{
+    margin-left: 10px;
+}
+#top_bar .top_bar_end ul.social_icon li a{
+    transition: 0.2s;
+}
+#top_bar .top_bar_end ul.social_icon li a:hover{
+    color: var(--1st-primary-light);
+}
+/* Navbar */
+#nav .link_and_icon ul.nav_link li a {
+    padding: 0 15px ;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 162%;
+    color: var(--text-color);
+    transition: 0.2s;
+}
+#nav .link_and_icon ul.nav_link li a:hover{
+    color: var(--1st-primary-light);
+}
+#nav .link_and_icon .nav_social_icon li a i{
+    font-size: 20px;
+    color: var(--text-color);
+    margin: 0 10px;
+
+}
+#nav .link_and_icon .nav_social_icon li:nth-child(4){
+    position: relative;
+}
+
+#nav .link_and_icon .nav_social_icon li div{
+    background: var(--1st-primary-light);
+    position: absolute;
+    right:0px;
+    top: -6px;
+    line-height: 15px;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    color: var(--common-color);
+    border-radius: 50%;
+
+
+}

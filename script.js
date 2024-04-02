@@ -1,1 +1,1 @@
-window.location.replace('./JS/WaveFunctionCollapse/index.html');
+window.location.replace('./CSS/Aytor-Banner/index.html');

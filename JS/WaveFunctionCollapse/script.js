@@ -43,7 +43,7 @@ function draw() {
   allTiles = nextAllTiles;  // update to next frame 
   nextAllTiles = create2DArray(DIM, DIM);  // reset the frame after
   
-  setTimeout(draw, 500);  // calls the draw function every 0.5 seconds
+  setTimeout(draw, 100);  // calls the draw function every 0.5 seconds
 }
 
 // ### Only start the drawing loop after every image has been loaded ### //
