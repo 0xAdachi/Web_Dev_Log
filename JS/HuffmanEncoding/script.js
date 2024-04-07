@@ -63,29 +63,33 @@ class HuffmanEncoding {
     return priorityQueue[0];
   }
 
-  static generateHuffmanCodes(node, code = "", codes = []) {
+  generateHuffmanCodes(node, code = "", codes = []) {
     if (node) {
       if(!node.leftNode && !node.rightNode) {
         codes.push(new HuffmanCode(node.char, code));
       } else {
-        HuffmanEncoding.generateHuffmanCodes(node.leftNode, code + "0", codes);
-        HuffmanEncoding.generateHuffmanCodes(node.rightNode, code + "1", codes);
+        this.generateHuffmanCodes(node.leftNode, code + "0", codes);
+        this.generateHuffmanCodes(node.rightNode, code + "1", codes);
       }
     }
 
     return codes;
   }
 
+  encode() {
+    let freqMap = this.createFreqMap;
+    let huffmanTree = this.buildHuffmanTree(freqMap);
+    let huffmanCodes = this.generateHuffmanCodes(huffmanTree);
+    let encodedText = "";
+
+    for (let char of this.str) {
+      encodedText += huffmanCodes.filter(curr => curr.char === char).map(curr => curr.code).toString();
+    }
+
+    return encodedText;
+  }
 }
 
 let hm = new HuffmanEncoding(message);
 
-let ht = hm.buildHuffmanTree(hm.createFreqMap);
-let hcodes = HuffmanEncoding.generateHuffmanCodes(ht);
-let encodedText = "";
-console.log(hcodes);
-for (let char of message) {
-  encodedText += hcodes.filter(e => e.char === char).map(e => e.code).toString();
-}
-
-console.log(encodedText);
+console.log(hm.encode());
