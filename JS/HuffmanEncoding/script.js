@@ -46,7 +46,7 @@ class HuffmanEncoding {
     return freqMap;
   }
 
-  buildHuffmanTree(freqMap) {
+  buildHuffmanTree(freqMap = this.createFreqMap) {
     let priorityQueue = [];
     freqMap.forEach(curr => priorityQueue.push(new HuffmanNode(curr.char, curr.count)));
     
@@ -88,8 +88,26 @@ class HuffmanEncoding {
 
     return encodedText;
   }
+
+  static decode(encodedText, rootNode) {
+    let decodedText = "";
+    let currentNode = rootNode;
+  
+    for (let bit of encodedText) {
+      if (bit === "0") currentNode = currentNode.leftNode;
+      if (bit === "1") currentNode = currentNode.rightNode;
+      if (!currentNode.leftNode && !currentNode.rightNode) {
+        decodedText += currentNode.char;
+        currentNode = rootNode;
+      }
+    }
+
+    return decodedText;
+  }
 }
 
 let hm = new HuffmanEncoding(message);
+let encodedText = hm.encode()
+let rootNode = hm.buildHuffmanTree();
 
-console.log(hm.encode());
+console.log(HuffmanEncoding.decode(encodedText, rootNode));
