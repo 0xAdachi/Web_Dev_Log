@@ -1,7 +1,5 @@
 "use strict";
 
-let message = "ACCCBB";
-
 class CharFreq {
   constructor(char, count) {
     this.char = char;
@@ -30,6 +28,7 @@ class HuffmanEncoding {
     this.str = str;
   }
 
+  // ### Create a frequency map which is basically a list of all characters and how many times they are present in the text ### //
   get createFreqMap() {
     let freqMap = [];
     for (let char of this.str) {
@@ -46,6 +45,7 @@ class HuffmanEncoding {
     return freqMap;
   }
 
+  // ### Builds the Huffman Tree from the frequency map ### //
   buildHuffmanTree(freqMap = this.createFreqMap) {
     let priorityQueue = [];
     freqMap.forEach(curr => priorityQueue.push(new HuffmanNode(curr.char, curr.count)));
@@ -63,6 +63,7 @@ class HuffmanEncoding {
     return priorityQueue[0];
   }
 
+  // ### Generate the encode for all characters in text from the huffman tree ### //
   generateHuffmanCodes(node, code = "", codes = []) {
     if (node) {
       if(!node.leftNode && !node.rightNode) {
@@ -76,6 +77,7 @@ class HuffmanEncoding {
     return codes;
   }
 
+  // ### Encode the text ### //
   encode() {
     let freqMap = this.createFreqMap;
     let huffmanTree = this.buildHuffmanTree(freqMap);
@@ -89,6 +91,7 @@ class HuffmanEncoding {
     return encodedText;
   }
 
+  // ### Decode the text from a encoded text and a huffman tree ### //
   static decode(encodedText, rootNode) {
     let decodedText = "";
     let currentNode = rootNode;
@@ -106,8 +109,50 @@ class HuffmanEncoding {
   }
 }
 
-let hm = new HuffmanEncoding(message);
-let encodedText = hm.encode()
-let rootNode = hm.buildHuffmanTree();
+// ### HTML element references ### //
+const inputMessage = document.getElementById("input-message");
+const encodeBtn = document.getElementById("encode-btn");
+const encodedMessege = document.getElementById("encoded-text");
+const huffmanTree = document.getElementById("huffman-tree");
+const inputEncode = document.getElementById("input-encode");
+const inputHFTree = document.getElementById("input-hf-tree");
+const decodeBtn = document.getElementById("decode-btn");
+const decodedMessege = document.getElementById("decoded-text");
+const toast = document.getElementById('toast');
 
-console.log(HuffmanEncoding.decode(encodedText, rootNode));
+// ### Encode on click ### //
+encodeBtn.addEventListener("click", () => {
+  let message = new HuffmanEncoding(inputMessage.value);
+  let hfTree = message.buildHuffmanTree();
+  let encodedData = message.encode();
+  encodedMessege.textContent = encodedData;
+  huffmanTree.textContent = JSON.stringify(hfTree)
+});
+
+encodedMessege.addEventListener("click", () => {
+  navigator.clipboard.writeText(encodedMessege.textContent);
+  showToast();
+});
+
+huffmanTree.addEventListener("click", () => {
+  navigator.clipboard.writeText(huffmanTree.textContent);
+  showToast();
+});
+
+// ### Decode on click from the input encode and input huffman tree ### //
+decodeBtn.addEventListener("click", () => {
+  let encodedText = inputEncode.value;
+  let rootNode = JSON.parse(inputHFTree.value);
+  let decodedText = HuffmanEncoding.decode(encodedText, rootNode)
+  decodedMessege.textContent = decodedText;
+});
+
+decodedMessege.addEventListener("click", () => {
+  navigator.clipboard.writeText(decodedMessege.textContent);
+  showToast();
+});
+
+function showToast() {
+  toast.classList.remove('hide');
+  setTimeout(() => toast.classList.add('hide'), 2000);
+}

@@ -3,13 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Huffman Encoding</title>
   <link rel="shortcut icon" href="./assets/favicon-adachi.png">
   
   <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
 </head>
 <body>
-  
+  <div class="container">
+    <!-- ENCODE WRAPPER -->
+    <div class="encode-wrapper">
+      <textarea name="input" class="input" id="input-message" cols="10" rows="8" placeholder="Enter message you want to encode"></textarea>
+      <button id="encode-btn" class="btn" type="button">Encode</button>
+      <h5>Click to Copy (Encoded Text)</h5>
+      <p id="encoded-text"></p>
+      <h5>Click to Copy (Huffman Tree)</h5>
+      <p id="huffman-tree"></p>
+    </div>
+    
+    <!-- DECODE WRAPPER -->
+    <div class="decode-wrapper">
+      <textarea name="input" class="input" id="input-encode" cols="10" rows="8" placeholder="Enter Encoded Text"></textarea>
+      <textarea name="input" class="input" id="input-hf-tree" cols="10" rows="5" placeholder="Enter Huffman Tree"></textarea>
+      <button id="decode-btn" class="btn" type="button">Decode</button>
+      <h5>Click to Copy (Decoded Text)</h5>
+      <p id="decoded-text"></p>
+      <a id="sc" href="https://github.com/0xAdachi/Huffman_Encoding/blob/main/script.js">Click to view source code</a>
+    </div>
+  </div>
+  <div id="toast" class="hide">Text Copied !</div>
 </body>
 </html>
