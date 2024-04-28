@@ -29,7 +29,7 @@ class triangle {
   }
 
   physics() {
-    // this.dy += this.gravity;
+    this.dy += this.gravity;
     this.a.add(0, this.dy);
     this.b.add(0, this.dy);
     this.c.add(0, this.dy);
@@ -75,7 +75,7 @@ let vectc = new vector2d(50, 100);
 
 let tria = new triangle(vecta, vectb, vectc);
 tria.dy = 1;
-// tria.gravity = 2;
+tria.gravity = 0.02;
 
 function loop() {
   window.requestAnimationFrame(loop);

@@ -1,1 +1,1 @@
-window.location.replace('./CSS/Aytor-Banner/index.html');
+window.location.replace('./CSS/Aytor-homepage/index.html');

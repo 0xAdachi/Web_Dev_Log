@@ -1,15 +1,237 @@
+<!--
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="shortcut icon" href="./assets/favicon-adachi.png">
-  
-  <link rel="stylesheet" href="./style.css">
-  <script src="./script.js" defer></script>
+  <title>Simple Triangle with Physics</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  
+  <canvas id="canvas"></canvas>
+
+  <script>
+    // Get the canvas element and its context
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size to match the viewport
+    canvas.width = document.documentElement.clientWidth;
+    canvas.height = document.documentElement.clientHeight;
+
+    // Define the triangle
+    const triangle = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      width: 50,
+      height: 50,
+      velocityX: 0,
+      velocityY: 2,
+      gravity: 0.1,
+      bounceFactor: -0.8,
+      rotation: 0,
+      angularVelocity: 0.05, // Angular velocity for rotation
+      maxRotation: Math.PI / 4, // Maximum rotation angle
+      restThreshold: 0.1, // Threshold velocity below which the triangle is considered at rest
+      restCounter: 0 // Counter to track how long the triangle has been at rest
+    };
+
+    // Function to draw the rotated triangle
+    function drawRotatedTriangle() {
+      ctx.save();
+      ctx.translate(triangle.x, triangle.y);
+      ctx.rotate(triangle.rotation);
+      ctx.beginPath();
+      ctx.moveTo(0, -triangle.height / 2);
+      ctx.lineTo(-triangle.width / 2, triangle.height / 2);
+      ctx.lineTo(triangle.width / 2, triangle.height / 2);
+      ctx.closePath();
+      ctx.fillStyle = 'blue';
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Function to update the position of the triangle
+    function update() {
+      // Apply gravity
+      triangle.velocityY += triangle.gravity;
+      triangle.y += triangle.velocityY;
+
+      // Check if triangle is at rest
+      if (Math.abs(triangle.velocityY) < triangle.restThreshold) {
+        triangle.restCounter++;
+      } else {
+        triangle.restCounter = 0;
+      }
+
+      // If triangle is at rest for too long and not in contact with the ground, reset its position
+      if (triangle.restCounter > 100 && triangle.y + triangle.height / 2 < canvas.height) {
+        triangle.y = canvas.height / 2;
+        triangle.velocityY = 2;
+        triangle.restCounter = 0;
+      }
+
+      // Bounce off the ground
+      if (triangle.y + triangle.height / 2 > canvas.height) {
+        triangle.y = canvas.height - triangle.height / 2;
+        triangle.velocityY *= triangle.bounceFactor;
+        // Adjust rotation angle only when bouncing off the ground
+        triangle.rotation = Math.atan2(triangle.velocityX, -triangle.velocityY); // Adjust rotation based on velocity
+      }
+
+      // Bounce off the sides
+      if (triangle.x - triangle.width / 2 < 0 || triangle.x + triangle.width / 2 > canvas.width) {
+        triangle.velocityX *= -1;
+      }
+
+      // Update rotation based on angular velocity
+      triangle.rotation += triangle.angularVelocity * triangle.velocityX;
+
+      // Update position
+      triangle.x += triangle.velocityX;
+
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the rotated triangle
+      drawRotatedTriangle();
+
+      // Request animation frame
+      requestAnimationFrame(update);
+    }
+
+    // Start animation
+    update();
+  </script>
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Triangle with Physics</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    // Get the canvas element and its context
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size to match the viewport
+    canvas.width = document.documentElement.clientWidth;
+    canvas.height = document.documentElement.clientHeight;
+
+    // Define the triangle
+    const triangle = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      width: 50,
+      height: 50,
+      velocityX: 1.2,
+      velocityY: 2,
+      gravity: 0.1,
+      bounceFactor: -0.8,
+      rotation: 0,
+      angularVelocity: 0.05, // Angular velocity for rotation
+      maxRotation: Math.PI / 4, // Maximum rotation angle
+      restThreshold: 0.1, // Threshold velocity below which the triangle is considered at rest
+      restCounter: 0 // Counter to track how long the triangle has been at rest
+    };
+
+    // Function to draw the rotated triangle
+    function drawRotatedTriangle() {
+      ctx.save();
+      ctx.translate(triangle.x, triangle.y);
+      ctx.rotate(triangle.rotation);
+      ctx.beginPath();
+      ctx.moveTo(0, -triangle.height / 2);
+      ctx.lineTo(-triangle.width / 2, triangle.height / 2);
+      ctx.lineTo(triangle.width / 2, triangle.height / 2);
+      ctx.closePath();
+      ctx.fillStyle = 'lime';
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Function to update the position of the triangle
+    function update() {
+      // Apply gravity
+      triangle.velocityY += triangle.gravity;
+      triangle.y += triangle.velocityY;
+
+      // Check if triangle is at rest
+      if (Math.abs(triangle.velocityY) < triangle.restThreshold) {
+        triangle.restCounter++;
+      } else {
+        triangle.restCounter = 0;
+      }
+
+      // If triangle is at rest for too long and not in contact with the ground, reset its position
+      if (triangle.restCounter > 100 && triangle.y + triangle.height / 2 < canvas.height) {
+        triangle.y = canvas.height - triangle.height / 2;
+        triangle.velocityY = 0;
+        triangle.restCounter = 0;
+      }
+
+      // Bounce off the ground
+      if (triangle.y + triangle.height / 2 > canvas.height) {
+        triangle.y = canvas.height - triangle.height / 2;
+        triangle.velocityY *= triangle.bounceFactor;
+        // Adjust rotation angle only when bouncing off the ground
+        triangle.rotation = Math.atan2(triangle.velocityX, -triangle.velocityY); // Adjust rotation based on velocity
+      }
+
+      // Bounce off the sides
+      if (triangle.x - triangle.width / 2 < 0 || triangle.x + triangle.width / 2 > canvas.width) {
+        triangle.velocityX *= -1;
+        // Ensure the triangle stays within the canvas boundaries
+        triangle.x = Math.max(triangle.width / 2, Math.min(canvas.width - triangle.width / 2, triangle.x));
+      }
+
+      // Update rotation based on angular velocity
+      triangle.rotation += triangle.angularVelocity * triangle.velocityX;
+
+      // Update position
+      triangle.x += triangle.velocityX;
+
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the rotated triangle
+      drawRotatedTriangle();
+
+      // Request animation frame
+      requestAnimationFrame(update);
+    }
+
+    // Start animation
+    update();
+  </script>
 </body>
 </html>

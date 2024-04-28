@@ -1,0 +1,187 @@
+
+/*===============================>
+#responsive part start
+===============================>*/
+
+/*<========= header section start ===========>*/
+/*<=========navbar start===========>*/
+@media screen and (max-width:1118px) {
+    header  #navbar  {
+        padding: 18px 0;
+        overflow: visible;
+    }
+     #navbar .list{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.452);
+        transition: 0.5s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 999999;
+    }
+     #navbar .list.open{
+        opacity: 1;
+        visibility: visible;
+    }
+     #navbar .list  .link{
+        flex-direction: column;
+    }
+     #navbar .list .img{
+        display: block;
+        background-color:#E8F8F9 ;
+        text-align: center;
+        padding: 40px 0 20px;
+    }
+     #navbar .list .nav_list{
+        background: #fff;
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        transition: 1s;
+        transition: 0.5s;
+
+    }
+     #navbar .list .nav_list.open_nav{
+        left: 0;
+    }
+     #navbar .list .sm_icon{
+        display: block;
+    }
+     #navbar .nav_item .link{
+        gap: 0px;
+    }
+    #navbar .nav_item .link .link_item{
+        /* margin-bottom: 20px; */
+        border-bottom: 1px solid black;
+    }
+     #navbar .nav_item .link .link_item a{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+     #navbar .nav_item .link a .fa-chevron-down{
+        transform: rotate(-90deg);
+        transition: 0.5s;
+    }
+     #navbar .nav_item .link .link_item:hover .fa-chevron-down{
+        transform: rotate(0deg);
+    }
+     #navbar .icon{
+        display: none;
+    }
+     #navbar .menu{
+    display: block;
+}
+ #navbar .list .nav_item .close_btn{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+/*<========= drop down ===========>*/
+#navbar .list .link .dorp_down{
+    display: block;
+    position: initial;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    padding: 0;
+    margin: 0;
+
+}
+#navbar .list .link .first-drop-down:hover .dorp_down{
+    /* display: block; */
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+}
+#navbar .list .link .dorp_down ul::after{
+
+    display: none;
+
+}#navbar .list .link .dorp_down ul li{
+    margin-top: 0;
+}
+#navbar .list .link .dorp_down ul li::after{
+    display: none;
+}
+#navbar .list .link .dorp_down ul li::before{
+    display: none;
+}
+.upper_btn{
+    display: none;
+}
+    /*<========= section seven ===========>*/
+    #section_saven{
+        margin: 85px 0;
+
+        background: #F1F3F4;;
+    }
+    #section_saven .row {
+        flex-direction: column-reverse;
+    }
+    footer .container .footer_header_section{
+        position: initial;
+        margin: auto;
+    }
+}
+/*<========= footer ===========>*/
+/*<=========navbar end ===========>*/
+/*<========= img section start ===========>*/
+@media screen and (max-width: 980px) {
+    /*<========= header section ===========>*/
+    #tob_bar{
+        background: var(--hover-color);
+        color: var(--comon-colot);
+        padding: 11px 0;
+        display: none;
+    }
+    #home_page_img_section .container .row .right-img {
+        margin-top: 24px;
+    }
+    /*<========= section 6 ===========>*/
+    /*<========= section 7 ===========>*/
+    #section_saven  .row .left-colum{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 517px;
+        background:#F1F3F4;
+        align-items: center;
+        padding-right: 100px;
+    }
+}
+@media screen and (max-width: 1200px){
+    #section_six .container .row .offer_banner{
+        height: 485px;
+        padding: 35px 40px;
+        margin:0 0 0 0;
+    }
+}
+
+/*<========= footer section start ===========>*/
+@media screen and (max-width: 768px) {
+    
+    footer .container .footer_header_section .child{
+        border: none;
+        
+    }
+    #section_six .container .row .offer_banner{
+        padding: 20px;
+    }
+}
+/*===============================>
+#responsive part end
+===============================>*/

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flappy Bird AI</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script>
+        // Game variables
+        var canvas = document.getElementById("gameCanvas");
+        var ctx = canvas.getContext("2d");
+        var bird = { x: 50, y: canvas.height / 2, radius: 10 };
+        var gravity = 0.5;
+        var velocity = 0;
+        var pipeGap = 100;
+        var pipeSpeed = 2;
+        var score = 0;
+        var pipes = [];
+
+        // Q-learning variables
+        var Q = {}; // Q-values table
+        var learningRate = 0.1;
+        var discountFactor = 0.9;
+        var explorationRate = 0.01;
+        var currentState = null;
+        var currentAction = null;
+
+        // Initialize Q-values
+        function initQValues() {
+            for (var i = 0; i < canvas.height; i++) {
+                for (var j = 0; j < canvas.height; j++) {
+                    for (var k = 0; k < 2; k++) {
+                        Q[[i, j, k]] = Math.random(); // Initialize with random values
+                    }
+                }
+            }
+        }
+
+        // Choose action based on epsilon-greedy policy
+        function chooseAction(state) {
+            if (Math.random() < explorationRate || Q[state] === undefined) {
+                // Explore
+                return Math.random() < 0.1 ? 0 : 1; // 0: Jump, 1: Don't jump
+            } else {
+                // Exploit
+                return Q[state] > Q[[state[0], state[1], (state[2] + 1) % 2]] ? 0 : 1;
+            }
+        }
+
+        // Update Q-value based on reward
+        function updateQValue(state, action, reward, nextState) {
+    var maxQ = Math.max(Q[nextState], Q[[nextState[0], nextState[1], (nextState[2] + 1) % 2]]);
+
+    // Adjust rewards based on bird's velocity and position
+    if (bird.y < canvas.height / 2) {
+        // Higher reward for states where the bird is closer to the top
+        reward += 0.1;
+    } else {
+        // Lower reward for states where the bird is closer to the bottom
+        reward -= 0.1;
+    }
+
+    // Adjust rewards based on bird's velocity
+    if (velocity < 0) {
+        // Higher reward for states where the bird is moving upwards
+        reward += 0.1;
+    } else {
+        // Lower reward for states where the bird is moving downwards
+        reward -= 0.1;
+    }
+
+    // Update Q-value
+    Q[state + ',' + action] += learningRate * (reward + discountFactor * maxQ - Q[state + ',' + action]);
+}
+
+        // Function to reset game state
+        function resetGame() {
+            bird.y = canvas.height / 2;
+            velocity = 0;
+            score = 0;
+            pipes = [];
+            generatePipes(); // Generate initial pipes
+            currentState = null;
+            currentAction = null;
+        }
+
+        // Check collision and game over
+        function checkGameOver() {
+            if (bird.y - bird.radius < 0 || bird.y + bird.radius > canvas.height) {
+                return true; // Bird hits top or bottom of the canvas
+            }
+            for (var i = 0; i < pipes.length; i++) {
+                if (bird.x + bird.radius > pipes[i].x && bird.x - bird.radius < pipes[i].x + pipes[i].width &&
+                    (bird.y - bird.radius < pipes[i].top || bird.y + bird.radius > pipes[i].bottom)) {
+                    return true; // Bird collides with pipe
+                }
+            }
+            return false;
+        }
+
+        // Generate new pipes
+        function generatePipes() {
+            var newPipe = {
+                x: canvas.width,
+                top: Math.random() * (canvas.height - pipeGap),
+                bottom: Math.random() * (canvas.height - pipeGap),
+                width: 50,
+                passed: false
+            };
+            pipes.push(newPipe);
+        }
+
+        // Function to log performance metrics
+        function logPerformance() {
+            console.log("Score:", score);
+            // Log Q-values for selected states
+            console.log("Q-values:");
+            console.log("State [bird.y, pipe[0].top, action=0]:", Q[[bird.y, pipes[0].top, 0]]);
+            console.log("State [bird.y, pipe[0].top, action=1]:", Q[[bird.y, pipes[0].top, 1]]);
+            // Add more states as needed
+        }
+
+        // Game loop
+        function gameLoop() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Choose action
+            var nextState = [bird.y, pipes[0].top, currentAction];
+            if (currentState !== null) {
+                updateQValue(currentState, currentAction, -1, nextState);
+            }
+            currentState = nextState;
+            currentAction = chooseAction(currentState);
+            if (currentAction === 0) {
+        velocity = -8; // Adjust velocity to make the bird jump
+    }
+
+            // Draw bird
+            ctx.fillStyle = "yellow";
+            ctx.fillRect(bird.x - bird.radius, bird.y - bird.radius, bird.radius * 2, bird.radius * 2);
+
+            // Update bird position
+            velocity += gravity;
+            bird.y += velocity;
+
+            // Draw pipes
+            ctx.fillStyle = "green";
+            for (var i = 0; i < pipes.length; i++) {
+                ctx.fillRect(pipes[i].x, 0, pipes[i].width, pipes[i].top);
+                ctx.fillRect(pipes[i].x, pipes[i].bottom, pipes[i].width, canvas.height - pipes[i].bottom);
+                pipes[i].x -= pipeSpeed;
+            }
+
+            // Check collision and game over
+            if (checkGameOver()) {
+                resetGame();
+            }
+
+            // Increment score if bird passes pipe
+            for (var i = 0; i < pipes.length; i++) {
+                if (pipes[i].x + pipes[i].width < bird.x - bird.radius && !pipes[i].passed) {
+                    score++;
+                    pipes[i].passed = true;
+                }
+            }
+
+            // Remove off-screen pipes
+            if (pipes.length > 0 && pipes[0].x + pipes[0].width < 0) {
+                pipes.shift();
+            }
+
+            // Generate new pipes
+            if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
+                generatePipes();
+            }
+
+            // Display score
+            ctx.fillStyle = "black";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 10, 30);
+
+            // Log performance
+            logPerformance();
+
+            // Request next frame
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Start the game loop
+        initQValues();
+        generatePipes(); // Populate pipes initially
+        gameLoop();
+    </script>
+</body>
+</html>
